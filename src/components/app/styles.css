@@ -1,0 +1,17 @@
+.Form {
+    input {
+      display: block;
+      margin: 1rem auto;
+    }
+  
+    textarea {
+      display: block;
+      margin: 0.5rem auto;
+    }
+  
+    button {
+      display: block;
+      margin: 0.5rem auto;
+    }
+  }
+  
