@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { reducer, initialState } from '../reducers/postsReducer';
+import { reducer, initialState } from '../reducers/Reducer';
 
 const PostContext = createContext(null);
 
-export const PostProvider = ({ children }) => {
+export const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
