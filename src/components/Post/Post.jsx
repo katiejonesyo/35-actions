@@ -2,33 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/Actions';
+import CommentForm from '../PostForm/CommentForm';
+import Comment from '../comment/Comment';
 
 
-export default function Post({ title, body }) {
+const Post = ({ title, post, postIndex }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deletePost(body));
+  console.log('post', title, post);
+
+  const handleClick = () => {
+    dispatch(deletePost(title, postIndex));
   };
 
   return (
-    <>
-      <dl>
-        <dt>Title</dt>
-        <dd>{title}</dd>
-
-        <dt>Body</dt>
-        <dd>{body}</dd>
-      </dl>
-      <button onClick={handleDelete}>Delete</button>
-    </>
+    <div>
+      <span>{title}</span>
+      <span>Post: {post}</span>
+      <button onClick={handleClick}>Delete Post</button> 
+      <CommentForm />
+      <Comment/>
+    </div>
   );
-}
+};
 
 Post.propTypes = {
+  post: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  postIndex: PropTypes.string.isRequired,
 };
+
+export default Post;
+
 
 
 

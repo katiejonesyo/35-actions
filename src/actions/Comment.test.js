@@ -1,13 +1,13 @@
 import { createCommit, CREATE_COMMENT, deleteComment, DELETE_COMMENT } from './Comment';
 
-describe('comment action for creating a commit', () => {
+describe('comment action for creating a comment', () => {
   it('creates a comment', () => {
     const action = createCommit({
-      comment: 'hiiiiii'
+      comment: 'hiiiiii', postIndex: 1
     });
     expect(action).toEqual({
       type: CREATE_COMMENT,
-      payload:{ comment: 'hiiiiii' }
+      payload:{ comment: 'hiiiiii', postIndex: 1 }
     });
   });
 

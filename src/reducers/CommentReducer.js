@@ -1,25 +1,22 @@
 import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/Actions';
 
-export const intialState = {
-  comment: []
-};
-
-export default function commentReducer(state = intialState, action){
+export default function commentReducer(state = {}, action){
 
   switch(action.type) {
-    case CREATE_COMMENT: 
+    case CREATE_COMMENT:
       return {
-        ...state,
-        comment: [...state.comment, action.payload]
+        ...state, 
+        comment: [action.payload.comment]
       };
+  
+      
     case DELETE_COMMENT:
       return {
         ...state,
         comment: state.comment.filter(comment => comment.user != action.payload)
       };
     default: return  state;
-  }
-
+  } 
 }
 
 
