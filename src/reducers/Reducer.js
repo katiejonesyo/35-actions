@@ -1,30 +1,26 @@
 import { CREATE_POST, DELETE_POST } from '../actions/Actions';
 
-export const initialState = {
-  posts: []
+
+export const intialState = {
+  post: []
 };
 
-export const reducer = (state, action) => {
-  switch(action.type) {
+export default function Reducer(state = intialState, action) {
+  switch(action.type){
     case CREATE_POST:
       return {
         ...state,
-        posts: [...state.posts, action.payload]
+        post: [...state.post, action.payload]
       };
-    case DELETE_POST: {
-      const posts = state
-        .posts
-        .filter(post => post.body !== action.payload);
-
+    case DELETE_POST:
       return {
         ...state,
-        posts
-      };
-    }
+        post: state.post.filter(post => post.title !== action.payload)
+      };   
     default:
       return state;
   }
-};
+}
 
 
 

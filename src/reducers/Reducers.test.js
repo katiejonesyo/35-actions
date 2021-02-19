@@ -1,44 +1,31 @@
 import { createPost, deletePost } from '../actions/Actions';
-import { reducer } from './Reducer';
+import Reducer from './Reducer';
 
-describe('post', () => {
-  it('makes a post', () => {
+/* eslint-disable max-len */
+describe('post reducer functionality', () => {
+  it('CREATE_POST', () => {
     const state = {
-      posts: []
+      post: []
     };
-
     const action = createPost({
-      title: 'Post',
-      body: 'body'
+      post: 'Jim'
     });
 
-    const updatedState = reducer(state, action);
-
-    expect(updatedState).toEqual({
-      posts: [{
-        title: 'Post',
-        body: 'body'
-      }]
-    });
+    const newState = Reducer(state, action);
+    expect(newState).toEqual({ post: [{  post: 'Jim' }] });
   });
 
-  it('deletes a post', () => {
+  it('DELETE_POST', () => {
+
     const state = {
-      posts: [{
-        title: 'Post',
-        body: 'body'
-      }]
+      post: [{ title: 'heck yea' }]
     };
 
-    const action = deletePost('body');
-    const updatedState = reducer(state, action);
+    const action = deletePost('heck yea');
 
-    expect(updatedState).toEqual({ posts: [] });
+    expect(Reducer(state, action)).toEqual({
+      post: []
+    });
   });
 });
-
-
-
-
-
 
