@@ -1,11 +1,11 @@
 import { CREATE_POST, DELETE_POST } from '../actions/Actions';
 
 
-export const intialState = {
+export const initialState = {
   post: []
 };
 
-export default function Reducer(state = intialState, action) {
+export default function Reducer(state = initialState, action) {
   switch(action.type){
     case CREATE_POST:
       return {
@@ -15,7 +15,7 @@ export default function Reducer(state = intialState, action) {
     case DELETE_POST:
       return {
         ...state,
-        post: state.post.filter(post => post.title !== action.payload)
+        post: state.post.filter(post => post.index !== action.payload)
       };   
     default:
       return state;

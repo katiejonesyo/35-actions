@@ -8,7 +8,7 @@ const CommentList = () => {
 
   const comment = useSelector(getComment);
 
-  const commentElements = comment.map((Post, i) => (
+  const commentElements = comment.map((post, i) => (
     <li key={i}>
       <Comment />
     </li>
@@ -22,7 +22,5 @@ const CommentList = () => {
   );
 };
 export default CommentList;
-
-
 
 

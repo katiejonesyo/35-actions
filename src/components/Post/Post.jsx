@@ -4,15 +4,17 @@ import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/Actions';
 import CommentForm from '../PostForm/CommentForm';
 import Comment from '../comment/Comment';
+import { deleteComment } from '../../actions/Comment';
 
 
-const Post = ({ title, post, postIndex }) => {
+const Post = ({ title, post, Index }) => {
   const dispatch = useDispatch();
 
   console.log('post', title, post);
 
   const handleClick = () => {
-    dispatch(deletePost(title, postIndex));
+    dispatch(deletePost(Index));
+    dispatch(deleteComment(Index));
   };
 
   return (
@@ -29,7 +31,7 @@ const Post = ({ title, post, postIndex }) => {
 Post.propTypes = {
   post: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  postIndex: PropTypes.string.isRequired,
+  Index: PropTypes.string.isRequired,
 };
 
 export default Post;

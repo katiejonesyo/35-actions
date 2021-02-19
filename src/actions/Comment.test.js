@@ -1,24 +1,24 @@
-import { createCommit, CREATE_COMMENT, deleteComment, DELETE_COMMENT } from './Comment';
+import { createComment, CREATE_COMMENT, deleteComment, DELETE_COMMENT } from './Comment';
 
 describe('comment action for creating a comment', () => {
   it('creates a comment', () => {
-    const action = createCommit({
+    const action = createComment({
       comment: 'hiiiiii', postIndex: 1
     });
     expect(action).toEqual({
       type: CREATE_COMMENT,
-      payload:{ comment: 'hiiiiii', postIndex: 1 }
+      payload:'hiiiiii'
     });
   });
 
   it('deletes a comment from the user', () => {
     const action = deleteComment({
-      user: 'Kt'
+      index: '1'
     });
 
     expect(action).toEqual({
       type: DELETE_COMMENT,
-      payload: { user: 'Kt' }
+      payload: { index: '1' }
     });
   });
 });
