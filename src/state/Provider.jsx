@@ -1,31 +1,31 @@
-import React, { createContext, useContext, useReducer } from 'react';
-import { reducer, initialState } from '../reducers/Reducer';
+// import React, { createContext, useContext, useReducer } from 'react';
+// import { reducer, initialState } from '../reducers/Reducer';
 
-const PostContext = createContext(null);
+// const PostContext = createContext(null);
 
-export const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+// export const Provider = ({ children }) => {
+//   const [state, dispatch] = useReducer(reducer, initialState);
 
-  return (
-    <PostContext.Provider value={{ state, dispatch }}>
-      { children }
-    </PostContext.Provider>
-  );
-};
+//   return (
+//     <PostContext.Provider value={{ state, dispatch }}>
+//       { children }
+//     </PostContext.Provider>
+//   );
+// };
 
-export const useSelector = selector => {
-  const { state } = useContext(PostContext);
+// export const useSelector = selector => {
+//   const { state } = useContext(PostContext);
 
-  return selector(state);
-};
+//   return selector(state);
+// };
 
-export const useDispatch = () => {
-  const { dispatch } = useContext(PostContext);
+// export const useDispatch = () => {
+//   const { dispatch } = useContext(PostContext);
 
-  return dispatch;
-};
+//   return dispatch;
+// };
 
 
 
-//EXTRA DAN LINES 
+// //EXTRA DAN LINES 
 

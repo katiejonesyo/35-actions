@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createPost } from '../../actions/Actions';
 import { useDispatch, useSelector } from '../../state/Provider';
 import { getPosts } from '../../selectors/Selectors';
+import { useDispatch } from 'react-redux';
 
 
 export default function PostForm() {
