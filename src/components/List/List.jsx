@@ -9,7 +9,7 @@ export default function List() {
 
   const postElements = posts
     .map((post, i) => (
-      <li key={i}>
+      <li key={post.index}>
         <Post {...post}/>
       </li>
     ));
